@@ -1,4 +1,4 @@
-# xlwings Server: Hello World
+# xlwings Server: Hello World (Flask version)
 
 This sample works with:
 
