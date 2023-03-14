@@ -4,7 +4,7 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 
-# CORS is only required with Office Scripts
+# CORS is required with Office Scripts and Excel on the web
 CORS(app)
 
 
@@ -26,4 +26,4 @@ def hello():
 
 
 if __name__ == "__main__":
-    app.run(port=8000, debug=True)
+    app.run(port=5000, debug=True)
