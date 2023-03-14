@@ -12,19 +12,7 @@ app = Flask(__name__)
 CORS(app)
 
 
-def auth_required(f):
-    @wraps(f)
-    def decorated_function(*args, **kwargs):
-        api_key = request.headers.get("Authorization")
-        if not secrets.compare_digest(api_key, os.environ["APP_API_KEY"]):
-            abort(401)
-        return f(*args, **kwargs)
-
-    return decorated_function
-
-
 @app.route("/hello", methods=["POST"])
-@auth_required
 def hello():
     # Instantiate a Book object with the deserialized request body
     book = xw.Book(json=request.json)
