@@ -17,7 +17,7 @@ This sample works with:
 
 * You'll need to have a recent version of Docker
 * Run `docker compose up` (this overrides `CMD` in the Dockerfile for local development)
-* Whenever you change dependencies in `requirements.txt`, you'll need to rebuild the container via `docker compos build`
+* Whenever you change dependencies in `requirements.txt`, you'll need to rebuild the container via `docker compose build`
 * To deploy the Dockerfile, it uses the `CMD` as specified in the Dockerfile
 
 For more info, see the FastAPI implementation:
