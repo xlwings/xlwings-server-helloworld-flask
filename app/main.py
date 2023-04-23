@@ -1,5 +1,5 @@
 import xlwings as xw
-from flask import Flask, jsonify, request
+from flask import Flask, request
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -22,7 +22,7 @@ def hello():
         cell.value = "Hello xlwings!"
 
     # Pass the following back as the response
-    return jsonify(book.json())
+    return book.json()
 
 
 if __name__ == "__main__":
