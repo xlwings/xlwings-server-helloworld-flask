@@ -11,18 +11,18 @@ CORS(app)
 @app.route("/hello", methods=["POST"])
 def hello():
     # Instantiate a Book object with the deserialized request body
-    book = xw.Book(json=request.json)
+    with xw.Book(json=request.json) as book:
 
-    # Use xlwings as usual
-    sheet = book.sheets[0]
-    cell = sheet["A1"]
-    if cell.value == "Hello xlwings!":
-        cell.value = "Bye xlwings!"
-    else:
-        cell.value = "Hello xlwings!"
+        # Use xlwings as usual
+        sheet = book.sheets[0]
+        cell = sheet["A1"]
+        if cell.value == "Hello xlwings!":
+            cell.value = "Bye xlwings!"
+        else:
+            cell.value = "Hello xlwings!"
 
-    # Pass the following back as the response
-    return book.json()
+        # Pass the following back as the response
+        return book.json()
 
 
 if __name__ == "__main__":
